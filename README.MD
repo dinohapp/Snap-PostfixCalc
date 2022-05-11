@@ -29,6 +29,12 @@ To run the tests:
 npn install
 npm test
 
+## Thoughs
+
+The code can definitely be refactored to be more concise as in the examples below. There are probably more edge cases that might be discovered later on and the program to be expanded later on. I know that the use of eval() is discouraged but it was a nice elegant solution in this case and might need to be redone later on.
+
+
+
 ## Useful alternative solutions:
 
 https://tinyurl.com/yck4vdtr
