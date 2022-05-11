@@ -1,0 +1,40 @@
+{
+  "name": "snap-postfixcalc",
+  "version": "1.0.0",
+  "description": "Postfix Calculator",
+  "main": "calc.js",
+  "jest": {
+          "roots": [
+            "<rootDir>",
+            "/home/hh/Snap-PostfixCalc"
+          ],
+          "modulePaths": [
+            "<rootDir>",
+            "/home/hh/Snap-PostfixCalc"
+          ],
+          "moduleDirectories": [
+            "node_modules"
+          ]
+  },
+  "directories": {
+    "test": "jest"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinohapp/Snap-PostfixCalc.git"
+  },
+  "keywords": [],
+  "author": "Oleksandr Kuratchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinohapp/Snap-PostfixCalc/issues"
+  },
+  "homepage": "https://github.com/dinohapp/Snap-PostfixCalc#readme",
+  "devDependencies": {
+    "jest": "^28.1.0",
+    "mock-stdin": "^1.0.0"
+  }
+}

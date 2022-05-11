@@ -1,5 +1,5 @@
 /*This program implements Postfix Calculator using stack. Only +,-,*,/ operations are implemented.
-Great visual explanation of the the logic is located here: https://www.free-online-calculator-use.com/postfix-evaluator.html
+Great visual explanation of the logic is located here: https://www.free-online-calculator-use.com/postfix-evaluator.html
 */
 
 //importing the node's readline module to be able to read from console.
@@ -36,14 +36,14 @@ const evaluateInput = (userInput) => {
         console.log("Please enter only numbers or operands (+ - * /) Use q to exit.")
     } else {
         userInput = userInput.split(" ");
-        calculateRPN(userInput);
+        calculatePostfix(userInput);
     }
 }
 
 //we'll go through the input and for each element, check if it's a number or not.
 //if it is a number, we'll put it on stack, if it's not we'll pop the last 2 numbers from the stack and perform the operation on them.
 let operands = []; //operands array is our stack.
-const calculateRPN = (userInput) => {
+const calculatePostfix = (userInput) => {
     userInput.forEach(element => {
         if (!isNaN(element)) {
             operands.push(element);
@@ -51,11 +51,14 @@ const calculateRPN = (userInput) => {
             let rightOperand = operands.pop();
             let leftOperand = operands.pop();
             let operation = leftOperand + " " + element + " " + rightOperand; //bug: when -1 - -1 is entered as input, program crashes because it evaluates to "-1--1", added the " " between operands and it solved the issue.
-            operands.push(eval(operation))
-            console.log(...operands)
+            operands.push(eval(operation));
+            console.log(...operands);
+            return(operands);
         } else {
             console.log(operands.length + " operands entered. Please enter at least 2 operands")
         }
     })
-}
+};
 
+module.exports = calculatePostfix
+//exports.calculatePostfix = calculatePostfix;
