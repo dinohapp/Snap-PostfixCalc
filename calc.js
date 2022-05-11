@@ -1,3 +1,7 @@
+/*This program implements Postfix Calculator using stack. Only +,-,*,/ operations are implemented.
+Great visual explanation of the the logic is located here: https://www.free-online-calculator-use.com/postfix-evaluator.html
+*/
+
 //importing the node's readline module to be able to read from console.
 const getInput = require('readline').createInterface({
     input: process.stdin,
@@ -5,7 +9,7 @@ const getInput = require('readline').createInterface({
 });
 
 //get stdin, and send it to evaluation. If it's a 'q'/'Q' symbol, then end the program. If it's a 'v'/'V' then print the operands array.
-console.log("Please enter your RPN input or q to exit, v to show current operands, c to reset")
+console.log("Please enter your input in Reverse Polish Notation form (ex. '5 5 5 8 + + -') or q to exit, v to show current operands, c to reset")
 getInput.on('line', userInput => {
     userInput = userInput.trim();
     //handling the exit command.
@@ -29,7 +33,7 @@ const evaluateInput = (userInput) => {
     //match everything except numbers, and the operands, otherwise keep prompting the user for input
     const testForLetters = new RegExp(/^[^0-9^+^*^// ^-]*$/); //regex to check for empty string, space or anything but numbers and operands
     if (testForLetters.test(userInput)) {
-        console.log("Please enter only numbers or +,-,*,/ Use q to exit.")
+        console.log("Please enter only numbers or operands (+ - * /) Use q to exit.")
     } else {
         userInput = userInput.split(" ");
         calculateRPN(userInput);
