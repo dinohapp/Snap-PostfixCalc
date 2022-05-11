@@ -43,17 +43,14 @@ const calculateRPN = (userInput) => {
     userInput.forEach(element => {
         if (!isNaN(element)) {
             operands.push(element);
+        } else if (operands.length >= 2) { //check if the operands array has at least 2 elements, otherwise prompt for another input.
+            let rightOperand = operands.pop();
+            let leftOperand = operands.pop();
+            let operation = leftOperand + " " + element + " " + rightOperand; //bug: when -1 - -1 is entered as input, program crashes because it evaluates to "-1--1", added the " " between operands and it solved the issue.
+            operands.push(eval(operation))
+            console.log(...operands)
         } else {
-            if (operands.length >= 2) { //check if the operands array has at least 2 elements, otherwise prompt for another input.
-                let rightOperand = operands.pop();
-                let leftOperand = operands.pop();
-                let operation = leftOperand + " " + element + " " + rightOperand; //bug: when -1 - -1 is entered as input, program crashes because it evaluates to "-1--1", added the " " between operands and it solved the issue.
-                operands.push(eval(operation))
-                console.log(...operands)
-            }
-            else {
-                console.log(operands.length + " operands entered. Please enter at least 2 operands")
-            }
+            console.log(operands.length + " operands entered. Please enter at least 2 operands")
         }
     })
 }
