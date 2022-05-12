@@ -3,19 +3,6 @@
   "version": "1.0.0",
   "description": "Postfix Calculator",
   "main": "calc.js",
-  "jest": {
-          "roots": [
-            "<rootDir>",
-            "/home/hh/Snap-PostfixCalc"
-          ],
-          "modulePaths": [
-            "<rootDir>",
-            "/home/hh/Snap-PostfixCalc"
-          ],
-          "moduleDirectories": [
-            "node_modules"
-          ]
-  },
   "directories": {
     "test": "jest"
   },
@@ -34,7 +21,11 @@
   },
   "homepage": "https://github.com/dinohapp/Snap-PostfixCalc#readme",
   "devDependencies": {
+    "babel-jest": "^28.1.0",
     "jest": "^28.1.0",
     "mock-stdin": "^1.0.0"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.17.10"
   }
 }

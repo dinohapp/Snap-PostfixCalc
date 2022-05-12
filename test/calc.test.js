@@ -1,7 +1,7 @@
-const calculatePostfix = require('./calculatePostfix');
+const calculatePostfix = require('../calc');
+//import calculatePostfix from "../calc"
 const stdin = require('mock-stdin').stdin();
 
 test('testing "5 5 5 8 + + -"', () =>
-console.log(calculatePostfix),
-    expect(calculatePostfix("5 5 5 8 + + -")).toBe(-13)
+    expect(calculatePostfix(stdin.send("5 5 5 8 + + -\r"))).toBe(-13)
 )
